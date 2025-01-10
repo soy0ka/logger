@@ -1,16 +1,14 @@
 {
-  "type": "module",
-  "name": "@daldalso/logger",
-  "version": "0.9.4-0",
-  "description": "Fancy logging library using tagged template literal",
-  "repository": {
-    "url": "git+https://github.com/JJoriping/logger.git"
-  },
-  "author": "JJoriping",
+  "name": "@onde/logger",
+  "version": "1.0.0",
+  "description": "CommonJS Support Version from @daldalso/logger",
+  "author": "soy0ka",
   "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
-    "build": "tsc",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc --project tsconfig.json",
+    "build:cjs": "tsc --project tsconfig-cjs.json",
     "test": "node --test"
   },
   "files": [
@@ -21,16 +19,22 @@
   ],
   "exports": {
     ".": {
-      "default": "./dist/index.js"
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./subscribers/*": {
-      "default": "./dist/subscribers/*"
+      "import": "./dist/mjs/subscribers/*",
+      "require": "./dist/cjs/subscribers/*"
     }
   },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "types": "./dist/mjs/index.d.ts",
   "devDependencies": {
     "@daldalso/eslint-plugin": "^1.2.3",
     "@types/node": "^22.4.0",
     "eslint": "^9.9.0",
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }

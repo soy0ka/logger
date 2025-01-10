@@ -1,0 +1,12 @@
+// tsconfig-cjs.json
+{
+  "extends": "./tsconfig-base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./dist/cjs",
+    "declaration": true,
+    "declarationDir": "./dist/cjs",
+    "target": "ESNext"
+  },
+  "exclude": ["node_modules", "dist/**/*"]
+}

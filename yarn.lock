@@ -55,17 +55,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@daldalso/logger@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@daldalso/logger@workspace:."
-  dependencies:
-    "@daldalso/eslint-plugin": "npm:^1.2.3"
-    "@types/node": "npm:^22.4.0"
-    eslint: "npm:^9.9.0"
-    typescript: "npm:^5.5.4"
-  languageName: unknown
-  linkType: soft
-
 "@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -173,6 +162,17 @@ __metadata:
   checksum: 10c0/db9de047c3bb9b51f9335a7bb46f4fcfb6829fb628318c12115fbaf7d369bfce71c15b103d1fc3b464812d936220ee9bc1c8f762d032c9f6be9acc99249095b1
   languageName: node
   linkType: hard
+
+"@onde/logger@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@onde/logger@workspace:."
+  dependencies:
+    "@daldalso/eslint-plugin": "npm:^1.2.3"
+    "@types/node": "npm:^22.4.0"
+    eslint: "npm:^9.9.0"
+    typescript: "npm:^5.5.4"
+  languageName: unknown
+  linkType: soft
 
 "@stylistic/eslint-plugin-js@npm:2.6.2":
   version: 2.6.2
