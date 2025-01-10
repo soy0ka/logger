@@ -1,9 +1,12 @@
-# @daldalso/logger
-Fancy logging library using tagged template literal
+# @onde/logger
+A fancy logging library forked from [@daldalso/logger](https://www.npmjs.com/package/@daldalso/logger) version 0.9.4-0 
+
+## Whats Diffrent?
+@onde/logger provides extended functionality, including CommonJS (CJS) support.
 
 ## Getting Started
-1. `yarn add @daldalso/logger`
-2. `import { log } from "@daldalso/logger"`
+1. `yarn add @onde/logger`
+2. `import { log } from "@onde/logger"`
 3. `log("Hello, World!")`
 
 Full examples are shown in [example.ts](src/example.ts).
@@ -20,7 +23,7 @@ There are 5 built-in log levels below, and you can directly call them to log som
 ![Example of log levels](res/example-log-levels.png)
 
 ```js
-import { log, info, success, warning, error } from "@daldalso/logger";
+import { log, info, success, warning, error } from "@onde/logger";
 
 log("Log");
 info("Info");
@@ -35,7 +38,7 @@ There are 36 styles of decorating text and you can call `col` to use them.
 ![Example of col](res/example-col.png)
 
 ```js
-import { col, log } from "@daldalso/logger";
+import { col, log } from "@onde/logger";
 
 log(col.red`Red`);
 log(col.bgBlue`Blue`);
@@ -46,7 +49,7 @@ You can make a call chain to apply multiple styles.
 ![Example of col chain](res/example-col-chain.png)
 
 ```js
-import { col, log } from "@daldalso/logger";
+import { col, log } from "@onde/logger";
 
 log(col.italic.green`Italic and green`);
 log("🚗💨 " + col.yellow.bgLBlack.underline`─────`);
@@ -67,7 +70,7 @@ Most of object types are handled for better appearance.
 ![Example of values](res/example-values.png)
 
 ```js
-import { log } from "@daldalso/logger";
+import { log } from "@onde/logger";
 
 log([ 1, 2, 3 ]);
 log(new Map([ [ "foo", /bar/g ], [ log, true ] ]));
@@ -86,7 +89,7 @@ Object with circular references is marked as below:
 ![Example of circular reference](res/example-circular.png)
 
 ```js
-import { log } from "@daldalso/logger";
+import { log } from "@onde/logger";
 
 const circularObject = { foo: 1 };
 circularObject.this = circularObject;
@@ -103,7 +106,7 @@ When you call Logger with multiple arguments, it labels each argument with numbe
 ![Example of labeling](res/example-label.png)
 
 ```js
-import { log } from "@daldalso/logger";
+import { log } from "@onde/logger";
 
 log("foo", "bar", "baz");
 ```
@@ -113,7 +116,7 @@ You can set the name of labels by calling any properties of its return value.
 ![Example of setting label name](res/example-label-name.png)
 
 ```js
-import { warning } from "@daldalso/logger";
+import { warning } from "@onde/logger";
 
 warning("Loading is too long!").Task("Deleting redundant files")['⏱️']("100 seconds");
 ```
@@ -126,7 +129,7 @@ because the default options makes Logger print timestamps which are distracting 
 ![Example of styling](res/example-style.png)
 
 ```js
-import { Logger, info, log } from "@daldalso/logger";
+import { Logger, info, log } from "@onde/logger";
 
 Logger.instance.setOptions({
   headings: {
@@ -144,7 +147,7 @@ info("How are you?");
 Logger calls `console.log` by default, but you can change this behavior with its subscription methods.
 
 ```js
-import { Logger, log } from "@daldalso/logger";
+import { Logger, log } from "@onde/logger";
 
 Logger.instance.removeSubscriber(1); // Removes default subscriber
 Logger.instance.addSubscriber(
@@ -157,7 +160,7 @@ log("Hello, World!"); // This will be printed to stderr.
 There are some functions that return a subscriber.
 
 ```js
-import { Logger, log, createDirectorySubscriber } from "@daldalso/logger";
+import { Logger, log, createDirectorySubscriber } from "@onde/logger";
 
 Logger.instance.addSubscriber(
   createDirectorySubscriber("logs", { type: "time", interval: "daily" }),
@@ -171,7 +174,7 @@ You can instantiate Logger to apply different configuration.
 Note that the instantiated Logger does not have any subscribers, which means you have to add one before logging with it.
 
 ```js
-import { Logger, createFileSubscriber } from "@daldalso/logger";
+import { Logger, createFileSubscriber } from "@onde/logger";
 
 const fileLogger = new Logger({
   headerFormat: "$H "
